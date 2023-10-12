@@ -1,8 +1,8 @@
 given_list = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
-
-new_list = []
     
 # Make a new list that has all the elements less than 5
+new_list = []
+
 for i in given_list:
     if i < 5:
         new_list.append(i)
@@ -11,7 +11,7 @@ for i in given_list:
 for i in new_list:
     print(i, end = " ") # Write the numbers in one line
 
-print()
+print() # The purpose of this print is to step a line
 
 # Ask the user for a number
 new_element = int(input("Tell me a number: "))
