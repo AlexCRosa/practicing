@@ -8,4 +8,7 @@ new_list = []
 
 # Check the divisors
 for i in x:
-    if i % 
+    if i % num == 0:
+        new_list.append(i)
+
+print(new_list)
