@@ -1,4 +1,4 @@
-## [Exercise 1](https://www.practicepython.org/exercise/2014/02/15/03-list-less-than-ten.html)
+## [Exercise 3](https://www.practicepython.org/exercise/2014/02/15/03-list-less-than-ten.html)
 
 ### [Solution](https://www.practicepython.org/solution/2014/02/26/03-list-less-than-ten-solutions.html)
 
