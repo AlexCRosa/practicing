@@ -2,18 +2,18 @@ def main():
 
     choices = ["rock", "scissors", "paper"]
 
-    def player1(status):
-        while status:
+    def player1():
+        while True:
             try:
                 choice = input("Player 1, what's your choice? ").lower()
                 if choice in choices:
-                    player1 = choice
-                    return player1
+                    player = choice
+                    return player
             except ValueError:
                 print("Not a valid choice.")
 
-    def player2(status):    
-        while status:
+    def player2():    
+        while True:
             try:
                 choice = input("Player 2, what's your choice? ").lower()
                 if choice in choices:
@@ -39,24 +39,19 @@ def main():
             print("Player 2 wins!")
 
     def check_new_game():
-        possible_answers = ["yes", "no"]
-        check = input("Play again? ").lower()
-        if check in possible_answers and check == "no":
-            status = False
-            return status
-        elif check in possible_answers and check == "yes":
-            status = True
-            return status
-        elif check not in possible_answers:
-            print("Invalid choice. Type 'yes' or 'no'.")
+        while True:    
+            possible_answers = ["yes", "no"]
 
-    status = True
 
-    player1 = player1(status)
-    player2 = player2(status)
-
-    game_logic(player1, player2)
-
-    check_new_game()
+    while True:
+        player1()
+        player2()
+        game_logic(player1, player2)
+        
+        check = input("Do you want to play again? ").lower()
+        if check in ["yes", "no"] and check == "yes":
+            continue
+        else:
+            break
  
 main()
