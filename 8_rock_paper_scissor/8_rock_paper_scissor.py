@@ -1,57 +1,52 @@
 def main():
 
-    choices = ["rock", "scissors", "paper"]
-
-    def player1():
+# Get players choice
+    def get_player_choice():
         while True:
-            try:
-                choice = input("Player 1, what's your choice? ").lower()
-                if choice in choices:
-                    player = choice
-                    return player
-            except ValueError:
-                print("Not a valid choice.")
+                choice = input("What's your choice (rock, paper, or scissors)? ").lower()
+                if choice in ["rock", "scissors", "paper"]:
+                    return choice
+                else:
+                    print("Invalid choice. Please enter 'rock', 'paper', or 'scissors'.")           
 
-    def player2():    
-        while True:
-            try:
-                choice = input("Player 2, what's your choice? ").lower()
-                if choice in choices:
-                    player2 = choice
-                    return player2
-            except ValueError:
-                print("Not a valid choice.")            
-
+# Create the game logic
     def game_logic(player1, player2):
         if player1 == player2:
-            print("Drawn.")
-        elif player1 == "rock" and player2 == "scissors":
-            print("Player 1 wins!")
-        elif player1 == "rock" and player2 == "paper":
-            print("Player 2 wins!")
-        elif player1 == "scissors" and player2 == "rock":
-            print("Player 2 wins!")
-        elif player1 == "scissors" and player2 == "paper":
-            print("Player 1 wins!")
-        elif player1 == "paper" and player2 == "rock":
-            print("Player 1 wins!")
-        elif player1 == "paper" and player2 == "scissors":
-            print("Player 2 wins!")
+            return "It's a tie!"
+        elif (player1 == "rock" and player2 == "scissors") or (player1 == "scissors" and player2 == "paper") or (player1 == "paper" and player2 == "rock"):
+            return "Player 1 wins!"
+        elif (player1 == "rock" and player2 == "paper") or (player1 == "scissors" and player2 == "rock") or (player1 == "paper" and player2 == "scissors"):
+            return "Player 2 wins!"
 
+# Ask user to decide wether play a new game or not
     def check_new_game():
-        while True:    
-            possible_answers = ["yes", "no"]
+        while True:
+            check = input("Do you want to play again? ").lower()
+            if check in ["yes", "no"]:
+                if check == "yes":
+                    return check
+                elif check == "no":
+                    return check
+            else:
+                print("Invalid answer. Do you want to play again? Answer 'yes' or 'no'.")
 
-
+# Since the user may choose to play the game more then once, the program must run on a loop
     while True:
-        player1()
-        player2()
-        game_logic(player1, player2)
-        
-        check = input("Do you want to play again? ").lower()
-        if check in ["yes", "no"] and check == "yes":
+        player1_choice = get_player_choice()
+        player2_choice = get_player_choice()
+
+        print(f"Player 1 chose {player1_choice}.")
+        print(f"Player 2 chose {player2_choice}.")
+
+        winner = game_logic(player1_choice, player2_choice)
+        print(winner)
+
+        new_game = check_new_game()
+        if new_game == "yes":
+            print("Ok. Lets go!")
             continue
-        else:
-            break
+        elif new_game == "no":
+            print("Thank you!")
+            break     
  
 main()
