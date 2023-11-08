@@ -1,14 +1,26 @@
-# Prompt the user for a number
-num = int(input("Tell me a number: "))
+def main():
 
-# Create a list of all divisors of the given number
-new_list = []
+    # Prompt the user for a number
+    number = int(input("Tell me a number: "))
 
-# Loop through numbers from 1 to the given number
-for i in range(1, num + 1):
+    # Define logic
+    def is_prime(number):
+        divisor = 2
+        while divisor < number:
+            if number % divisor == 0:
+                return False
+            else:
+                divisor += 1
+                return True
 
-    # Check the divisors
-    if num % i == 0:
-        new_list.append(i) 
+    # Receive logic        
+    check = is_prime(number)
 
-print(new_list)
+    # Decide which message to print
+    if check:
+        print(f"Number {number} is prime.")
+    else:
+        print(f"Number {number} is not prime.")
+
+main()
+
