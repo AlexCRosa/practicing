@@ -20,7 +20,8 @@ while True:
         elif user_guess < generate_number:
             print("That's LOW! Guess another number: ")
         else:
-            print(f"Well done! The number is {generate_number}.")
+            print(f"Well done! The number is {generate_number}. :)")
+            print("Let's keep playing! To stop, type 'exit'.")
             generate_number = random.randint(1, 10)
             attempts += 1
     except ValueError:
