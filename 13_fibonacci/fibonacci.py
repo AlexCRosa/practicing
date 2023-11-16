@@ -1,21 +1,29 @@
 def fibonacci(x):
 
     # Defining a list to receive values
-    fibonacci_list = [1]
+    counter = 0
+    
+    # Creating a variable just to store a value
+    joker = 0
 
-    # Defining a counter to help with the calculation
-    counter = 1
+    # Defining a counter to help with the calculation 
+    counter1 = 0
+    counter2 = 1
 
     # Loop until the list reaches the amount of elements the user wanted
-    while len(fibonacci_list) < x:
-        fibonacci_list.append(counter)
+    while counter < x:
+        counter += 1
+        print(counter2, end=" ")
 
         # Fibonacci logic = sum of the two last values
-        counter = fibonacci_list[-1] + fibonacci_list[-2]
+        joker = counter1
+
+        counter2 = counter1 + counter
+
     return fibonacci_list
 
-amount = int(input("How many numbers to generate? "))
+amount_numbers = int(input("How many numbers to generate? "))
 
-a = fibonacci(amount)
+a = fibonacci(amount_numbers)
 
 print(a)
