@@ -37,4 +37,8 @@ for i in list_1:
 print(sorted(extra_list))
 
 # Extra 2: Print in one line of Python
-print(list(set(a).intersection(set(b))))
+# Exercise 14 asked me to move below code inside a function
+def using_set():
+    print(list(set(a).intersection(set(b))))
+
+using_set()
