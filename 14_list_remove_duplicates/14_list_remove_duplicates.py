@@ -1,40 +1,33 @@
 import random
 
-a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+# Prepare two list to store elements
+first_list = []
+second_list = []
 
-b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+# Function to create a list of random numbers
+def create_list():
+    counter = 0
 
-# Create a new list to receive the data
-new_list = []
+    while counter < 20:
+        first_list.append(random.randint(1, 30))
+        counter += 1
 
-# Iterate through list a
-for i in a:
+# Function to exclude the duplicate elements
+def exclude_duplicate():
+    for i in first_list:
+        if i not in second_list:
+            second_list.append(i)
+        else:
+            continue
 
-# Check if the number is present in both lists + exclude duplicates
-    if i in b and i not in new_list:
-        new_list.append(i)
+create_list()
+first_list.sort()
+print(first_list)
 
-print(new_list)
+# Since sets ignore duplicates, I do not need to manage first_list elements
+print(set(first_list))
 
-# Extra 1: Program to create random lists
-def generate_random_list(length, min_value, max_value):
-    random_list = [random.randint(min_value, max_value) for _ in range(length)]
-    return random_list
+exclude_duplicate()
+print(second_list)
 
-# Creating the random lists
-list_1 = generate_random_list(15, 1, 25)
-list_2 = generate_random_list(10, 1, 25)
-
-extra_list = []
-
-# Iterate through lists created
-for i in list_1:
-
-# Check if the number is present in both lists + exclude duplicates
-    if i in list_2 and i not in extra_list:
-        extra_list.append(i)
-
-print(sorted(extra_list))
-
-# Extra 2: Print in one line of Python
-print(list(set(a).intersection(set(b))))
+# print(list(set(a).intersection(set(b))))
