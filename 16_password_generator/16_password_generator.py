@@ -3,8 +3,6 @@ import random
 import time
 
 def main():
-    weak_password = ""
-    strong_password = ""
 
     # Get requirements to create the password
     amount_characters = int(input("How many characters the password must have? "))
@@ -23,22 +21,9 @@ def main():
             time.sleep(2)
             print(strong_password)
 
-    # Picking a random word for weak password
+    # Generator of a random word logic
     def weak_random_word():
-        list1 = ["pug", "shepperd", "heeler", "greyhound", "bulldog", "malamute", "foxhound", "husky", "dobermann", "collie"]
-        list2 = ["siamese", "ragdoll", "birman", "sphynx", "burmese", "chartreux", "peterbald", "snowshoe", "ragamuffin", "chausie"]
-
-        defining_list = random.randint(1, 2)
-
-        if defining_list == 1:
-            random_word = list1[random.randint(0, 9)]
-            return random_word
-        else:
-            random_word = list2[random.randint(0, 9)]
-        return random_word
-
-    # Generator WEAK PASSWORD logic
-    def weak_random_word():
+        # Defined two random lists to help with 'EXTRA' requirement
         list1 = ["pug", "heeler", "husky", "collie", "poodle", "hound"]
         list2 = ["red", "blue", "green", "black", "gray", "pink", "white"]
 
@@ -51,9 +36,12 @@ def main():
             random_word = list2[random.randint(0, len(list2))]
         return random_word.capitalize()
 
+    # Generator WEAK PASSWORD
     def weak_password_generator(random_word):
         characters_counter = len(random_word)
         weak_password = random_word
+
+        # Ask user wheter include symbols or not
         special = input("Include special characters [YES] or [NO]? ")
 
         # a-z, A-Z, 0-9
