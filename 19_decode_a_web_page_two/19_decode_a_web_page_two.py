@@ -1,12 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = 'http://www.nytimes.com/'
-r = requests.get(url)
-r_html = r.text
+base_url = "http://www.vanityfair.com/society/2014/06/monica-lewinsky-humiliation-culture"
+r = requests.get(base_url)
+soup = BeautifulSoup(r.text, "html.parser")
 
-soup = BeautifulSoup(r_html)
-title = soup.find_all('h3')
+article_text = soup.find_all("p")
 
-for i in title:
-    print(i.text)
+for i in article_text[7:]:
+  print(i.text)
