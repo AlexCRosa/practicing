@@ -21,6 +21,31 @@ def check_element(ordered_list, given_number):
     else:
         return False
     
+def binary_search(ordered_list, given_number):
+    start = 0
+    end = len(ordered_list) - 1
+
+    while start <= end:
+        # Find the middle element in the list
+        mid = (start + end) // 2
+        middle_element = ordered_list[mid]
+
+        # Check if the middle element is the given number
+        if middle_element == given_number:
+            print(f"{given_number} is on the list.")
+            return True
+        
+        # if middle element is less than the given number
+        elif middle_element < given_number:
+            # Sum 1 to the middle element position
+            start = mid + 1
+        else:
+            # Decrease 1 to the middle element position
+            end = mid - 1
+
+    print(f"{given_number} is not in the list.")
+    return False
+
 given_number = random.randint(1, 100)
 ordered_list = list_creator()
 
@@ -29,4 +54,8 @@ ordered_list = list_creator()
 print(ordered_list)
 print(given_number)
 
+# Simple method to check if given number is on the list
 print(check_element(ordered_list, given_number))
+
+# Using binary search to check if the given number is on the list
+binary_search(ordered_list, given_number)
